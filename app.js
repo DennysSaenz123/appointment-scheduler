@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // req: contains information about the incoming request
 // res: allows us to send back a response to the client
 app.get('/', (req, res) => {
-  res.send("Hello world!");
+  res.sendFile(`${import.meta.dirname}/views/home.html`);
 });
 
 
