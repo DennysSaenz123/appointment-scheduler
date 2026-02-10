@@ -13,6 +13,9 @@ app.use(express.static('public'));
 //Allow express to read form data
 app.use(express.urlencoded({ extended: true }));
 
+// array to store submissions
+const submissions = [];
+
 
 // Define a default "route" ('/')
 // req: contains information about the incoming request
@@ -21,6 +24,25 @@ app.get('/', (req, res) => {
   res.sendFile(`${import.meta.dirname}/views/home.html`);
 });
 
+app.get('/admin', (req,res) =>{
+    res.send(submissions);
+
+})
+
+//POST route to handle form submission
+app.post('/submissions', (req, res) =>{
+    
+    //JSON object to store submission data
+    const submit = {
+        fname: req.body.fname,
+        lname: req.body.lname,
+        email: req.body.email,
+        date: new Date(),
+        time: req.body.time
+    };
+    //push the order object to the submissions array
+    submissions.push(submit);
+})
 
 // Start the server and listen on the specified port 
 app.listen(PORT, () => {
