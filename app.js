@@ -42,6 +42,9 @@ app.post('/submissions', (req, res) =>{
     };
     //push the order object to the submissions array
     submissions.push(submit);
+
+    //confirmation page
+    res.sendFile(`${import.meta.dirname}/views/confirmation.html`);
 })
 
 // Start the server and listen on the specified port 

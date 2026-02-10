@@ -1,0 +1,16 @@
+.err {
+    display: none;
+    color: red
+}
+label{
+    display: block;
+    padding: .15rem;
+}
+
+input[type = "text"], textarea, select{
+    width: 100%;
+    border: 1px solid black;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+    padding: .75 rem;
+}
